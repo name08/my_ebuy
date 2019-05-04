@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 设置为ProductDao接口方法提供sql语句配置 -->
+<mapper namespace="com.lao.my_ebuy.dao.ProductDao">
+
+    <resultMap id="ProductMapper" type="com.lao.my_ebuy.model.Product">
+        <id column="id" property="id"></id>
+        <result column="c_username" property="c_username"></result>
+        <result column="c_password" property="c_password"></result>
+        <result column="c_sex" property="c_sex"></result>
+        <result column="c_nickname" property="c_nickname"></result>
+        <result column="c_address" property="c_address"></result>
+        <result column="c_zipCode" property="c_zipCode"></result>
+        <result column="c_email" property="c_email"></result>
+        <result column="c_picUrl" property="c_picUrl"></result>
+        <result column="c_intro" property="c_intro"></result>
+        <result column="c_createTime" property="c_createTime"></result>
+        <result column="totalPrice" property="totalPrice"></result>
+    </resultMap>
+
+</mapper>
