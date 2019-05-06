@@ -39,6 +39,66 @@
         </collection>
     </resultMap>
 
+    <!-- 查询分类分页 -->
+    <select id="queryProductTypePage" resultType="int" resultMap="ProductTypeMapper">
+        SELECT * FROM producttype INNER JOIN admin NO admin.id = producttype.pt_creatorId ORDER BY pt_orderNum DESC LIMIT #{firstIndex},#{pageSize}
+    </select>
+
+    <!-- 查询分类记录数 -->
+    <select id="ProductTypeCount" resultType="int">
+        SELECT COUNT(*) FROM producttype
+    </select>
+
+    <!-- 查询产品的数量 -->
+    <select id="getProductNumber" parameterType="int" resultType="int">
+        SELECT COUNT (productType) FROM product WHERE productTypeId = #{id}
+    </select>
+
+    <!-- 查询产品类别是否存在 -->
+    <select id="exitsProductType" resultType="int" parameterType="String">
+        SELECT COUNT(id) FROM producttype
+        <where>
+            pt_name = #{pt_name}
+            <if test="id!=null">AND id!=#{id}</if>
+        </where>
+    </select>
+
+    <!-- 查询产品分类列表 -->
+    <select id="listProductType" resultMap="ProductTypeMap">
+        SELECT id,pr_name FROM producttype
+    </select>
+    
+    <!-- 模糊查询产品分类 -->
+    <select id="LikeProductType" resultMap="ProductTypeMapper">
+        SELECT * FROM producttype INNER JOIN admin NO admin.id = producttype.pt_creatorId
+            <choose>
+                <when test="keyWord!=null and keyWord.trim().length()>0">
+                    AND pt_name LIKE CONCAT ('%',#{keyWord},'%')
+                </when>
+                <otherwise>
+
+                </otherwise>
+            </choose>
+            LIMIT #{firstIndex},#{pageSize}
+    </select>
+
+    <!-- 统计查询产品分类数量 -->
+    <select id="LikeProductTypeCount" resultType="int">
+        SELECT COUNT(*) FROM producttype INNER JOIN admin NO admin.id = producttype.pt_creatorId
+            <choose>
+                <when test="keyWord!=null and keyWord.trim().length()>0">
+                    AND pt_name LIKE CONCAT ('%',#{keyWord},'%')
+                </when>
+                <otherwise>
+
+                </otherwise>
+            </choose>
+    </select>
+    
+    <!-- 查询产品类别信息 -->
+    <select id="getProductType" resultType="int">
+        SELECT * FROM productType WHERE id = #{id}
+    </select>
     <!-- 删除分类 -->
     <delete id="deleteProductType" parameterType="int">
         DELETE FROM productType WHERE id = #{id}
@@ -68,7 +128,6 @@
             </if>
         </where>
     </update>
-
 
 
 </mapper>
