@@ -78,9 +78,9 @@
     </insert>
 
     <!-- 删除用户 -->
-    <select id="deleteCustomer">
+    <delete id="deleteCustomer">
         DELETE FROM customer WHERE id = #{id}
-    </select>
+    </delete>
 
     <!-- 添加用户 -->
     <insert id="addCustomer">
@@ -92,31 +92,31 @@
     <update id="updateCustomer">
         UPDATE customer
         <set>
-            <if test="c_password!=null and c_password.length()>0">
+            <if test="c_password!=null and c_password.trim().length()>0">
                 c_password = #{c_password},
             </if>
             <if test="c_sex!=null">
                 c_sex = #{c_sex},
             </if>
-            <if test="c_nickname!=null and c_nickname.length()>0">
+            <if test="c_nickname!=null and c_nickname.trim().length()>0">
                 c_nickname = #{c_nickname},
             </if>
-            <if test="c_address!=null and c_address.length()>0">
+            <if test="c_address!=null and c_address.trim().length()>0">
                 c_address = #{c_address},
             </if>
-            <if test="c_email!=null and c_email.length()>0">
+            <if test="c_email!=null and c_email.trim().length()>0">
                 c_email = #{c_email},
             </if>
-            <if test="c_telephone!=null and c_telephone.length()>0">
+            <if test="c_telephone!=null and c_telephone.trim().length()>0">
                 c_telephone = #{c_telephone},
             </if>
-            <if test="c_zipCode!=null and c_zipCode.length()>0">
+            <if test="c_zipCode!=null and c_zipCode.trim().length()>0">
                 c_zipCode = #{c_zipCode},
             </if>
-            <if test="c_picUrl!=null and c_picUrl.length()>0">
+            <if test="c_picUrl!=null and c_picUrl.trim().length()>0">
                 c_picUrl = #{c_picUrl},
             </if>
-            <if test="c_intro!=null and c_intro.length()>0">
+            <if test="c_intro!=null and c_intro.trim().length()>0">
                 c_intro = #{c_intro},
             </if>
         </set>

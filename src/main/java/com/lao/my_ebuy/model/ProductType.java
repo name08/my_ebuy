@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class ProductType {
 
-    private Integer pt_id;  //产品类id
+    private Integer id;  //产品类id
     private String pt_name; //产品类名称
     private String pt_linkUrl; //产品类
     private String pt_imageUrl; //产品类图片
     private String pt_intro; //产品类描述
-    private Integer pt_orderNum; //产品类
+    private Integer pt_orderNum; //订单数量
     private Date pt_createTime; //产品类创建时间
     private Integer pt_creatorId; //产品类
     private Integer pt_finalEditorId; //产品类
@@ -18,12 +18,12 @@ public class ProductType {
     private Product product; //产品
     private Integer productNumber;
 
-    public Integer getPt_id() {
-        return pt_id;
+    public Integer getId() {
+        return id;
     }
 
-    public void setPt_id(Integer pt_id) {
-        this.pt_id = pt_id;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getPt_name() {
