@@ -24,7 +24,7 @@ public interface ProductTypeDao {
     public int exitsProductType(ProductType productType);
     //获取产品分类列表
     public List<ProductType> listProductType();
-    //查询产品分类
+    //模糊查询产品分类
     public List<ProductType> LikeProductType(Page<ProductType> page);
     //统计查询产品分类数量
     public int LikeProductTypeCount(Page<ProductType> page);

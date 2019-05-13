@@ -26,7 +26,7 @@ public class ProductTypeServiceImpl implements ProductTypeService {
         List<ProductType> list = productTypeDao.queryProductTypePage(page); //存放在list
         int productCount = productTypeDao.ProductTypeCount();   //计算总数量
         for (int i = 0; i < list.size(); i++){
-            list.get(i).setProductNumber(productTypeDao.getProductNumber(list.get(i).getPt_id()));  //产品数量
+            list.get(i).setProductNumber(productTypeDao.getProductNumber(list.get(i).getId()));  //产品数量
         }
         page.setTotalDataCount(productCount);   //page类添加总数量
         page.setList(list); //把查询到的所有记录放入page类
@@ -115,7 +115,7 @@ public class ProductTypeServiceImpl implements ProductTypeService {
         int likeProductTypeCount = productTypeDao.LikeProductTypeCount(page);   //计算总数量
 
         for (int i = 0; i < list.size(); i++){
-            list.get(i).setProductNumber(productTypeDao.getProductNumber(list.get(i).getPt_id()));  //产品数量
+            list.get(i).setProductNumber(productTypeDao.getProductNumber(list.get(i).getId()));  //产品数量
         }
         page.setTotalDataCount(likeProductTypeCount);   //page类添加总记录
         page.setList(list); //把查询到的所有记录放入page类

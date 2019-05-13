@@ -16,7 +16,7 @@ public class ProductType {
     private Date pt_updateTime; //产品类最后编辑时间
     private Admin admin; //管理员
     private Product product; //产品
-    private Integer productNumber;
+    private Integer productNumber;  //产品数量
 
     public Integer getId() {
         return id;

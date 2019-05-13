@@ -63,12 +63,12 @@
     </select>
 
     <!-- 普通分页查询 -->
-    <select id="queryCustomerPage" resultType="int" resultMap="customerMapper">
+    <select id="queryCustomerPage" resultMap="customerMapper">
         SELECT * FROM customer LIMIT #{firstIndex}, #{pageSize}
     </select>
 
     <!-- 用户登录 -->
-    <select id="customerLogin" resultMap="costomerMapper">
+    <select id="customerLogin" resultMap="customerMapper">
         SELECT * FROM customer WHERE c_username = #{c_username} AND c_password = #{c_password}
     </select>
 
